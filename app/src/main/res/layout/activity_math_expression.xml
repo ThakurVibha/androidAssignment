@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundColor"
+        tools:context=".ui.MathExpressionActivity">
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etEnterData"
+        style="@style/styleTextRegular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_round_corners_white"
+        android:elevation="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="start|center"
+        android:hint="@string/enter_something"
+        android:inputType="text"
+        android:maxLength="25"
+        android:padding="5dp"
+        android:textFontWeight="600"
+        android:paddingStart="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivHistory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSolve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_corners"
+        android:text="@string/solve"
+        android:textSize="15dp"
+        android:textFontWeight="600"
+        android:textAllCaps="false"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivHistory"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_history"
+        app:layout_constraintBottom_toBottomOf="@+id/etEnterData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etEnterData"
+       />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_round_corners_white"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEnterData" >
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="20dp"
+            android:textSize="25dp"
+            android:textAllCaps="false"
+            android:textFontWeight="600"
+            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="Here you go!"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

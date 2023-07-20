@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">onlinesaleaiAssignment</string>
+    <string name="enter_something">Enter expression</string>
+    <string name="solve">Solve (:</string>
+</resources>
