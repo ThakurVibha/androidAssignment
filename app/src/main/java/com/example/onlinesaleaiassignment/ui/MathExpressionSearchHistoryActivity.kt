@@ -15,7 +15,8 @@ import kotlinx.coroutines.launch
 class MathExpressionSearchHistoryActivity : AppCompatActivity() {
     lateinit var historyAdapter: HistoryAdapter
     lateinit var binding: ActivitySearchHistoryBinding
-    private var mathExpressionHistoryData:List<MathExpressionEntity>?=null
+    val mathExpressionHistoryList: MutableList<MathExpressionEntity> = mutableListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search_history)
@@ -23,12 +24,12 @@ class MathExpressionSearchHistoryActivity : AppCompatActivity() {
         //Here we are fetching data from database
         CoroutineScope(Dispatchers.IO).launch {
             val mathExpressionDatabase = MathExpressionDatabase.getDatabase(applicationContext)
-             mathExpressionHistoryData = mathExpressionDatabase.myDataDao().getAllData()
+            mathExpressionHistoryList.addAll(mathExpressionDatabase.myDataDao().getAllData())
             Log.e(
-                "getAllData", "$mathExpressionHistoryData"
+                "getAllData", "$mathExpressionHistoryList"
             )
         }
-        historyAdapter = HistoryAdapter(mathExpressionHistoryData!!)
+        historyAdapter = HistoryAdapter(mathExpressionHistoryList!!)
         binding.rvHistory.adapter = historyAdapter
 
     }

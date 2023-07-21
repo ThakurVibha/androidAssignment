@@ -2,12 +2,15 @@ package com.example.onlinesaleaiassignment.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.onlinesaleaiassignment.MathExpressionApp
 import com.example.onlinesaleaiassignment.R
+import com.example.onlinesaleaiassignment.Utils.shakeView
 import com.example.onlinesaleaiassignment.databinding.ActivityMathExpressionBinding
 import com.example.onlinesaleaiassignment.viewmodels.MathExpressionViewModel
 import com.example.onlinesaleaiassignment.viewmodels.MathExpressionViewModelFactory
@@ -16,8 +19,11 @@ import com.example.onlinesaleaiassignment.viewmodels.MathExpressionViewModelFact
 class MathExpressionActivity : AppCompatActivity() {
     lateinit var mathExpressionViewModel: MathExpressionViewModel
     lateinit var binding: ActivityMathExpressionBinding
+    private lateinit var shake: Animation
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        shake = AnimationUtils.loadAnimation(this, R.anim.shake)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_math_expression)
         initViewModel()
         observeData()
@@ -52,11 +58,13 @@ class MathExpressionActivity : AppCompatActivity() {
         if (binding.etEnterData.text.toString().isBlank()
         ) {
            binding.etEnterData.error="Please enter mathematical expression"
+            binding.etEnterData.shakeView(shake)
             return false
         }
         if (binding.etEnterData.text.toString().isEmpty()
         ) {
             binding.etEnterData.error="Please enter mathematical expression"
+            binding.etEnterData.shakeView(shake)
             return false
         }
         return true
